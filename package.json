@@ -1,0 +1,19 @@
+{
+    "name": "technical-documentation-page",
+    "version": "0.1.0",
+    "description": "Fourth challenge for freeCodeCamp Responsive Web Design Projects",
+    "main": "dist/index.html",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/fosfor15/Technical-Documentation-Page.git"
+    },
+    "author": "Dmitry Kostyuk",
+    "license": "ISC",
+    "devDependencies": {
+        "browser-sync": "^2.26.14",
+        "del": "^6.0.0",
+        "gulp": "^4.0.2",
+        "gulp-clean-css": "^4.3.0",
+        "gulp-less": "^5.0.0"
+    }
+}
