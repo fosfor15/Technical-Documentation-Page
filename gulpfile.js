@@ -5,11 +5,13 @@ const sourceFolder = 'src';
 const path = {
     build: {
         html: `${buildFolder}/`,
-        styles: `${buildFolder}/`
+        styles: `${buildFolder}/`,
+        img: `${buildFolder}/img/`
     },
     source: {
         html: `${sourceFolder}/*.html`,
-        styles: `${sourceFolder}/*.less`
+        styles: `${sourceFolder}/*.less`,
+        img: `${sourceFolder}/img/*`
     },
     clean: `./${buildFolder}/`
 };
@@ -27,6 +29,11 @@ function copyHTML() {
     return src( path.source.html )
            .pipe( dest( path.build.html ) )
            .pipe( browserSync.stream() );
+}
+
+function copyImg() {
+    return src( path.source.img )
+           .pipe( dest( path.build.img ) );
 }
 
 function transformStyles() {
@@ -61,6 +68,7 @@ const build = gulp.series(
     clean,
     gulp.parallel(
         copyHTML,
+        copyImg,
         transformStyles
     )
 );
@@ -76,5 +84,6 @@ module.exports = {
     build,
     watch,
     copyHTML,
-    transformStyles,
+    copyImg,
+    transformStyles
 };

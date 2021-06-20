@@ -15,11 +15,88 @@
 @secondary-blue: #235a97;
 
 
+@light-gray: #eeeeee;
+@gray: #dfdfdf;
+
+
 /* ------------------------------------------- Header ------------------------------------------ */
 
-h1 {
+#navbar {
+    display: flex;
+    flex-direction: column;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 300px;
+    height: 100vh;
+    overflow: hidden;
+    background-color: @light-gray;
+    border-right: 1px solid #aeaeae;
+
+    header {
+        text-align: left;
+        margin: 20px;
+        margin-top: 28px;
+    }
+
+    ul {
+        list-style-type: none;
+    }
+
+    li {
+        margin: 8px 0;
+    }
+
+    a.nav-link {
+        display: block;
+        margin-left: -4px;
+        padding: 8px 20px;
+        color: black;
+        text-decoration: none;
+        border-left: 4px solid @primary-blue;
+        transition: transform .3s;
+        &:hover {
+            background-color: @gray;
+            transform: translateX(6px);
+        }
+    }
+
+}
+
+#attribution {
+    margin-top: auto;
+    margin-bottom: 20px;
+    padding: 20px;
+
+    a { text-decoration: none; }
+
+    font-size: 16px;
+    * { font-size: inherit; }
+    line-height: 1.4;
+}
+
+#copyright {
+    padding: 12px 20px;
+    font-size: 16px;
+    text-align: center;
+    p { margin-bottom: 12px; }
+}
+
+/* -------------------------------------------- Main ------------------------------------------- */
+
+#main-doc {
+    margin: 20px;
+    margin-left: 320px;
+}
+
+header {
     color: @secondary-blue;
     font-size: 30px;
-    margin: 20px;
+    margin: 20px 0;
     text-align: center;
+}
+
+p {
+    margin: 8px 0;
 }

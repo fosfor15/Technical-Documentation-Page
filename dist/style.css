@@ -47,9 +47,73 @@
   font-family: Montserrat,sans-serif;
   font-size: 18px
 }
-h1 {
+#navbar {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 300px;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #eee;
+  border-right: 1px solid #aeaeae
+}
+#navbar header {
+  text-align: left;
+  margin: 20px;
+  margin-top: 28px
+}
+#navbar ul {
+  list-style-type: none
+}
+#navbar li {
+  margin: 8px 0
+}
+#navbar a.nav-link {
+  display: block;
+  margin-left: -4px;
+  padding: 8px 20px;
+  color: #000;
+  text-decoration: none;
+  border-left: 4px solid #3178c6;
+  transition: transform .3s
+}
+#navbar a.nav-link:hover {
+  background-color: #dfdfdf;
+  transform: translateX(6px)
+}
+#attribution {
+  margin-top: auto;
+  margin-bottom: 20px;
+  padding: 20px;
+  font-size: 16px;
+  line-height: 1.4
+}
+#attribution a {
+  text-decoration: none
+}
+#attribution * {
+  font-size: inherit
+}
+#copyright {
+  padding: 12px 20px;
+  font-size: 16px;
+  text-align: center
+}
+#copyright p {
+  margin-bottom: 12px
+}
+#main-doc {
+  margin: 20px;
+  margin-left: 320px
+}
+header {
   color: #235a97;
   font-size: 30px;
-  margin: 20px;
+  margin: 20px 0;
   text-align: center
+}
+p {
+  margin: 8px 0
 }
