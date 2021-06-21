@@ -40,12 +40,46 @@
   font-display: swap;
   src: url(https://fonts.gstatic.com/s/montserrat/v15/JTURjIg1_i6t8kCHKm45_dJE7g4.ttf) format('truetype')
 }
+@font-face {
+  font-family: 'Roboto Mono';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/robotomono/v13/L0xoDF4xlVMF-BfR8bXMIjhOsXG-q2oeuFoqFrlnAOW9.ttf) format('truetype')
+}
+@font-face {
+  font-family: 'Roboto Mono';
+  font-style: italic;
+  font-weight: 500;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/robotomono/v13/L0xoDF4xlVMF-BfR8bXMIjhOsXG-q2oeuFoqFrlVAOW9.ttf) format('truetype')
+}
+@font-face {
+  font-family: 'Roboto Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/robotomono/v13/L0xuDF4xlVMF-BfR8bXMIhJHg45mwgGEFl0_3vqPQw.ttf) format('truetype')
+}
+@font-face {
+  font-family: 'Roboto Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/robotomono/v13/L0xuDF4xlVMF-BfR8bXMIhJHg45mwgGEFl0_7PqPQw.ttf) format('truetype')
+}
 * {
   box-sizing: border-box;
   margin: 0;
-  padding: 0;
-  font-family: Montserrat,sans-serif;
-  font-size: 18px
+  padding: 0
+}
+body {
+  background-color: #f8f8f8
+}
+header {
+  color: #235a97;
+  font-size: 30px;
+  font-family: Montserrat,sans-serif
 }
 #navbar {
   display: flex;
@@ -57,10 +91,9 @@
   height: 100vh;
   overflow: hidden;
   background-color: #eee;
-  border-right: 1px solid #aeaeae
+  border-right: 1px solid #c8c8c8
 }
 #navbar header {
-  text-align: left;
   margin: 20px;
   margin-top: 28px
 }
@@ -74,46 +107,114 @@
   display: block;
   margin-left: -4px;
   padding: 8px 20px;
+  border-left: 4px solid #3178c6;
+  font-family: Montserrat,sans-serif;
+  font-size: 18px;
   color: #000;
   text-decoration: none;
-  border-left: 4px solid #3178c6;
   transition: transform .3s
 }
 #navbar a.nav-link:hover {
-  background-color: #dfdfdf;
+  background-image: linear-gradient(to right,#dfdfdf,#eee);
   transform: translateX(6px)
 }
 #attribution {
   margin-top: auto;
   margin-bottom: 20px;
-  padding: 20px;
+  padding: 0 20px;
+  font-family: Montserrat,sans-serif;
   font-size: 16px;
-  line-height: 1.4
+  line-height: 1.4;
+  text-align: center
 }
 #attribution a {
   text-decoration: none
 }
-#attribution * {
-  font-size: inherit
-}
 #copyright {
   padding: 12px 20px;
+  font-family: Montserrat,sans-serif;
   font-size: 16px;
   text-align: center
 }
 #copyright p {
-  margin-bottom: 12px
+  margin: 12px 0
 }
 #main-doc {
-  margin: 20px;
-  margin-left: 320px
+  margin-left: 340px;
+  margin-right: 40px;
+  font-size: 18px
 }
-header {
-  color: #235a97;
-  font-size: 30px;
-  margin: 20px 0;
-  text-align: center
+#main-doc header {
+  margin-left: -10px;
+  margin-bottom: 20px;
+  padding-top: 30px;
+  overflow: hidden
 }
-p {
-  margin: 8px 0
+#main-doc header a {
+  display: block;
+  margin-left: -4px;
+  padding: 4px 10px;
+  border-left: 4px solid #3178c6;
+  color: inherit;
+  text-decoration: none;
+  transition: transform .3s
+}
+#main-doc header a:hover {
+  background-image: linear-gradient(to right,#eee 70%,#f8f8f8);
+  transform: translateX(6px)
+}
+#main-doc p {
+  margin: 12px 0;
+  font-family: Montserrat,sans-serif;
+  line-height: 1.4
+}
+#main-doc code {
+  font-family: 'Roboto Mono',monospace
+}
+#main-doc code.code-inline {
+  padding: 1px 8px 2px;
+  border-radius: 4px;
+  background-color: #e3e8ec
+}
+#main-doc code.code-block {
+  display: block;
+  width: 80%;
+  max-width: 1000px;
+  min-width: 700px;
+  margin: 18px auto;
+  padding: 20px;
+  border-left: 4px solid #3178c6;
+  border-radius: 0 4px 4px 0;
+  background-image: linear-gradient(to right,#e3e8ec 50%,#eff2f4)
+}
+#main-doc code.code-block .code-keyword {
+  color: #592172
+}
+#main-doc code.code-block .code-string {
+  color: #891414
+}
+#main-doc code.code-block .underline {
+  border-bottom: 2px solid #235a97
+}
+#main-doc code.code-block .result-message {
+  position: relative;
+  width: fit-content;
+  margin-top: 20px;
+  margin-left: 71px;
+  padding: 6px 12px;
+  border: 1px solid #235a97;
+  border-radius: 5px
+}
+#main-doc code.code-block .result-message::before {
+  content: '';
+  position: absolute;
+  top: -7px;
+  left: 19px;
+  width: 12px;
+  height: 12px;
+  border-top: inherit;
+  border-right: inherit;
+  border-top-right-radius: 3px;
+  background-color: #e3e8ec;
+  transform: rotate(-45deg)
 }
