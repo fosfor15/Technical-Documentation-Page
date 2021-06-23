@@ -57,7 +57,7 @@
                 TypeScript stands in an unusual relationship to JavaScript. TypeScript offers all of JavaScript’s features, and an additional layer on top of these: TypeScript’s type system.
             </p>
             <p>
-                For example, JavaScript provides language primitives like <code class="code-inline">string</code> and <code class="code-inline">number</code>, but it doesn’t check that you’ve consistently assigned these. TypeScript does.
+                For example, JavaScript provides language primitives like <code class="inline"><span class="string">string</span></code> and <code class="inline"><span class="number">number</span></code>, but it doesn’t check that you’ve consistently assigned these. TypeScript does.
             </p>
             <p>
                 This means that your existing working JavaScript code is also TypeScript code. The main benefit of TypeScript is that it can highlight unexpected behavior in your code, lowering the chance of bugs.
@@ -74,16 +74,16 @@
             <p>
                 TypeScript knows the JavaScript language and will generate types for you in many cases. For example in creating a variable and assigning it to a particular value, TypeScript will use the value as its type.
             </p>
-            <code class="code-block">
+            <code class="block">
                 <div class="line">
-                    <span class="code-keyword">let</span> <span class="underline">helloWorld</span> = <span class="code-string">'Hello World'</span>;
+                    <span class="keyword">let</span> <span class="underline">helloWorld</span> = <span class="string">'Hello World'</span>;
                 </div>
-                <div class="result-message">
+                <div class="message">
                     let helloWorld: string
                 </div>
             </code>
             <p>
-                By understanding how JavaScript works, TypeScript can build a type-system that accepts JavaScript code but has types. This offers a type-system without needing to add extra characters to make types explicit in your code. That’s how TypeScript knows that <code class="code-inline">helloWorld</code> is a <code class="code-inline">string</code> in the above example.
+                By understanding how JavaScript works, TypeScript can build a type-system that accepts JavaScript code but has types. This offers a type-system without needing to add extra characters to make types explicit in your code. That’s how TypeScript knows that <code class="inline"><span class="underline">helloWorld</span></code> is a <code class="inline"><span class="string">string</span></code> in the above example.
             </p>
             <p>
                 You may have written JavaScript in Visual Studio Code, and had editor auto-completion. Visual Studio Code uses TypeScript under the hood to make it easier to work with JavaScript.
@@ -94,6 +94,26 @@
             <header>
                 <a href="#defining_types">Defining Types</a>
             </header>
+            <p>
+                You can use a wide variety of design patterns in JavaScript. However, some design patterns make it difficult for types to be inferred automatically (for example, patterns that use dynamic programming). To cover these cases, TypeScript supports an extension of the JavaScript language, which offers places for you to tell TypeScript what the types should be.
+            </p>
+            <p>
+                For example, to create an object with an inferred type which includes <code class="inline">name: <span class="string">string</span></code> and <code class="inline">id: <span class="number">number</span></code>, you can write:
+            </p>
+            <code class="block">
+                <div class="line">
+                    <span class="keyword">const</span> user = {
+                </div>
+                <div class="line indent">
+                    name: <span class="string">"Hayes"</span>,
+                </div>
+                <div class="line indent">
+                    id: <span class="number">0</span>,
+                </div>
+                <div class="line">
+                    };
+                </div>
+            </code>
         </section>
 
         <section class="main-section" id="composing_types">
