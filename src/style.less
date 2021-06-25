@@ -14,17 +14,26 @@
 @gray: #eeeeee;
 @dark-gray: #dfdfdf;
 
-@purple: #762f95;
+@keyword-blue: #155fb1;
+@dark-yellow: #908d18;
+@aquamarine: #16946b;
 @red: #b20808;
-@green: #098507;
+@purple: #762f95;
+@dark-green: #1f6128;
 
 
 /* --------------------------------------- Common Styles --------------------------------------- */
 
-* {
+*,
+*::before,
+*::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;    
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
@@ -141,13 +150,18 @@ header {
 }
 
 p {
-    margin: 12px 0;
+    margin: 16px 0;
     font-family: Montserrat, sans-serif;
-    line-height: 1.4;
+    line-height: 1.5;
+    
+    &.increased-line-height {
+        line-height: 1.7;
+    }
 }
 
 code {
     font-family: 'Roboto Mono', monospace;
+    word-spacing: -3px;
     
     &.inline {
         padding: 1px 8px 2px;
@@ -156,7 +170,6 @@ code {
     }
     
     &.block {
-        position: relative;
         display: block;
         width: 80%;
         max-width: 1000px;
@@ -168,26 +181,59 @@ code {
         border-radius: 0 4px 4px 0;
         background-image: linear-gradient(to right, @light-blue 50%, lighten(@light-blue, 4%));
 
-        .line::before {
-            position: absolute;
-            left: 20px;
-            content: counter(line-number);
-            counter-increment: line-number;
-            font-size: 14px;
-            line-height: 2;
-            color: @dark-blue;
+        .line {
+            position: relative;
+            z-index: 1;
+            margin: 2px 0;
+
+            .line-number() {
+                position: absolute;
+                content: counter(line-number);
+                counter-increment: line-number;
+                font-size: 14px;
+                line-height: 2;
+                color: @dark-blue;
+            }
+
+            &::before {
+                .line-number();
+                left: -50px;
+            }
+
+            @indent: 28px;
+            @indent-set: range(2);
+
+            each(@indent-set, {
+                &.indent-@{value} {
+                    margin-left: @indent * @value;
+
+                    &::before,
+                    &::after {
+                        margin-left: -@indent * @value;
+                    }
+                }
+            });
+
+            &.vertical-indent {
+                margin-top: 26px;
+
+                &::before {
+                    top: -24px;
+                }
+
+                &::after {
+                    .line-number();
+                    left: -50px;
+                }
+            }
         }
         counter-reset: line-number;
-
-        .indent {
-            margin-left: 28px;
-        }
 
         .underline {
             border-bottom: 2px solid @dark-blue;
         }
         
-        .message {
+        .result-message {
             position: relative;
             width: fit-content;
             margin-top: 20px;
@@ -213,10 +259,39 @@ code {
                 transform: rotate(-45deg);
             }
         }
+
+        .error-message {
+            position: relative;
+            z-index: 1;
+            margin: 6px 0;
+            padding: 6px 0;
+
+            &::before {
+                position: absolute;
+                z-index: -1;
+                top: 0;
+                left: -74px;
+                content: '';
+                width: calc(100% + 144px);
+                height: 100%;
+
+                @light-red: lighten( spin(@blue, 138), 35%) ;
+                border-left: 4px solid darken(@light-red, 28%);
+                background-image: linear-gradient(135deg, @light-red 30%, lighten(@light-red, 11%));
+            }
+        }
     }
     
     .keyword {
-        color: @purple;
+        color: @keyword-blue;
+    }
+
+    .function {
+        color: @dark-yellow;
+    }
+
+    .object {
+        color: @aquamarine;
     }
 
     .string {
@@ -224,6 +299,14 @@ code {
     }
 
     .number {
-        color: @green;
+        color: @purple;
     }
+
+    .comment {
+        color: @dark-green;
+    }
+}
+
+a {
+    color: @dark-blue;
 }

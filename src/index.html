@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script>// Fix pretransition effects</script>
     <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
     <title>TypeScript for JavaScript Programmers</title>
 </head>
 <body>
@@ -53,14 +54,9 @@
             <header>
                 <a href="#typescript_for_js_programmers">TypeScript for JavaScript Programmers</a>
             </header>
+
             <p>
-                TypeScript stands in an unusual relationship to JavaScript. TypeScript offers all of JavaScript’s features, and an additional layer on top of these: TypeScript’s type system.
-            </p>
-            <p>
-                For example, JavaScript provides language primitives like <code class="inline"><span class="string">string</span></code> and <code class="inline"><span class="number">number</span></code>, but it doesn’t check that you’ve consistently assigned these. TypeScript does.
-            </p>
-            <p>
-                This means that your existing working JavaScript code is also TypeScript code. The main benefit of TypeScript is that it can highlight unexpected behavior in your code, lowering the chance of bugs.
+                TypeScript stands in an unusual relationship to JavaScript. TypeScript offers all of JavaScript’s features, and an additional layer on top of these: TypeScript’s type system.For example, JavaScript provides language primitives like <code class="inline"><span class="string">string</span></code> and <code class="inline"><span class="number">number</span></code>, but it doesn’t check that you’ve consistently assigned these. TypeScript does. This means that your existing working JavaScript code is also TypeScript code. The main benefit of TypeScript is that it can highlight unexpected behavior in your code, lowering the chance of bugs.
             </p>
             <p>
                 This tutorial provides a brief overview of TypeScript, focusing on its type system.
@@ -71,17 +67,20 @@
             <header>
                 <a href="#types_by_inference">Types by Inference</a>
             </header>
+
             <p>
                 TypeScript knows the JavaScript language and will generate types for you in many cases. For example in creating a variable and assigning it to a particular value, TypeScript will use the value as its type.
             </p>
+
             <code class="block">
                 <div class="line">
                     <span class="keyword">let</span> <span class="underline">helloWorld</span> = <span class="string">'Hello World'</span>;
                 </div>
-                <div class="message">
+                <div class="result-message">
                     let helloWorld: string
                 </div>
             </code>
+
             <p>
                 By understanding how JavaScript works, TypeScript can build a type-system that accepts JavaScript code but has types. This offers a type-system without needing to add extra characters to make types explicit in your code. That’s how TypeScript knows that <code class="inline"><span class="underline">helloWorld</span></code> is a <code class="inline"><span class="string">string</span></code> in the above example.
             </p>
@@ -94,26 +93,185 @@
             <header>
                 <a href="#defining_types">Defining Types</a>
             </header>
+
             <p>
                 You can use a wide variety of design patterns in JavaScript. However, some design patterns make it difficult for types to be inferred automatically (for example, patterns that use dynamic programming). To cover these cases, TypeScript supports an extension of the JavaScript language, which offers places for you to tell TypeScript what the types should be.
             </p>
             <p>
                 For example, to create an object with an inferred type which includes <code class="inline">name: <span class="string">string</span></code> and <code class="inline">id: <span class="number">number</span></code>, you can write:
             </p>
+
             <code class="block">
                 <div class="line">
                     <span class="keyword">const</span> user = {
                 </div>
-                <div class="line indent">
+                <div class="line indent-1">
                     name: <span class="string">"Hayes"</span>,
                 </div>
-                <div class="line indent">
+                <div class="line indent-1">
                     id: <span class="number">0</span>,
                 </div>
                 <div class="line">
                     };
                 </div>
             </code>
+
+            <p>
+                You can explicitly describe this object’s shape using an <code class="inline"><span class="keyword">interface</span></code> declaration:
+            </p>
+
+            <code class="block">
+                <div class="line">
+                    <span class="keyword">interface</span> <span class="object">User</span> {
+                </div>
+                <div class="line indent-1">
+                    name: <span class="string">string</span>;
+                </div>
+                <div class="line indent-1">
+                    id: <span class="number">number</span>;
+                </div>
+                <div class="line">
+                    }
+                </div>
+            </code>
+
+            <p>
+                You can then declare that a JavaScript object conforms to the shape of your new <code class="inline"><span class="keyword">interface</span></code> by using syntax like <code class="inline"><span class="object">: TypeName</span></code> after a variable declaration:
+            </p>
+
+            <code class="block">
+                <div class="line">
+                    <span class="keyword">const</span> user : <span class="object">User</span> = {
+                </div>
+                <div class="line indent-1">
+                    name: <span class="string">"Hayes"</span>,
+                </div>
+                <div class="line indent-1">
+                    id: <span class="number">0</span>,
+                </div>
+                <div class="line">
+                    };
+                </div>
+            </code>
+
+            <p>
+                If you provide an object that doesn’t match the interface you have provided, TypeScript will warn you:
+            </p>
+
+            <code class="block">
+                <div class="line">
+                    <span class="keyword">interface</span> <span class="object">User</span> {
+                </div>
+                <div class="line indent-1">
+                    name: <span class="string">string</span>;
+                </div>
+                <div class="line indent-1">
+                    id: <span class="number">number</span>;
+                </div>
+                <div class="line">
+                    }
+                </div>
+
+                <div class="line vertical-indent">
+                    <span class="keyword">const</span> user : <span class="object">User</span> = {
+                </div>
+                <div class="line indent-1">
+                    username: <span class="string">"Hayes"</span>,
+                </div>
+
+                <div class="error-message">
+                    Type '{ username: string; id: number; }' is not assignable to type 'User'.
+                    Object literal may only specify known properties, and 'username' does not exist in type 'User'.
+                </div>
+
+                <div class="line indent-1">
+                    id: <span class="number">0</span>,
+                </div>
+                <div class="line">
+                    };
+                </div>
+            </code>
+
+            <p>
+                Since JavaScript supports classes and object-oriented programming, so does TypeScript. You can use an interface declaration with classes:
+            </p>
+
+            <code class="block">
+                <div class="line">
+                    <span class="keyword">interface</span> <span class="object">User</span> {
+                </div>
+                <div class="line indent-1">
+                    name: <span class="string">string</span>;
+                </div>
+                <div class="line indent-1">
+                    id: <span class="number">number</span>;
+                </div>
+                <div class="line">
+                    }
+                </div>
+
+                <div class="line vertical-indent">
+                    <span class="keyword">class</span> <span class="object">UserAccount</span> {
+                </div>
+                <div class="line indent-1">
+                    name: <span class="string">string</span>;
+                </div>
+                <div class="line indent-1">
+                    id: <span class="number">number</span>;
+                </div>
+
+                <div class="line indent-1 vertical-indent">
+                    <span class="keyword">constructor</span>(name: <span class="string">string</span>, id: <span class="number">number</span>) {
+                </div>
+                <div class="line indent-2">
+                    <span class="keyword">this</span>.name = name;
+                </div>
+                <div class="line indent-2">
+                    <span class="keyword">this</span>.id = id;
+                </div>
+                <div class="line indent-1">
+                    }
+                </div>
+                <div class="line">
+                    }
+                </div>
+
+                <div class="line vertical-indent">
+                    <span class="keyword">const</span> user: <span class="object">User</span> = <span class="keyword">new</span> <span class="function">UserAccount</span>(<span class="string">"Murphy"</span>, <span class="number">1</span>);
+                </div>
+            </code>
+
+            <p>
+                You can use interfaces to annotate parameters and return values to functions:
+            </p>
+
+            <code class="block">
+                <div class="line">
+                    <span class="keyword">function</span> <span class="function">getAdminUser</span>(): <span class="object">User</span> {
+                </div>
+                <div class="line indent-1">
+                    <span class="comment">//...</span>
+                </div>
+                <div class="line">
+                    }
+                </div>
+                <div class="line vertical-indent">
+                    <span class="keyword">function</span> <span class="function">deleteUser</span>(user: <span class="object">User</span>) {
+                </div>
+                <div class="line indent-1">
+                    <span class="comment">//...</span>
+                </div>
+                <div class="line">
+                    }
+                </div>
+            </code>
+
+            <p class="increased-line-height">
+                There are already a small set of primitive types available in JavaScript: <code class="inline">boolean</code>, <code class="inline">bigint</code>, <code class="inline">null</code>, <code class="inline"><span class="number">number</span></code>, <code class="inline"><span class="string">string</span></code>, <code class="inline">symbol</code>, and <code class="inline">undefined</code>, which you can use in an interface. TypeScript extends this list with a few more, such as <code class="inline">any</code> – allow anything, <a href="https://www.typescriptlang.org/play#example/unknown-and-never" target="_blank">unknown</a> (ensure someone using this type declares what the type is), <a href="https://www.typescriptlang.org/play#example/unknown-and-never" target="_blank">never</a> – it’s not possible that this type could happen, and <code class="inline">void</code> – a function which returns <code class="inline">undefined</code> or has no return value.
+            </p>
+            <p>
+                You’ll see that there are two syntaxes for building types: <a href="https://www.typescriptlang.org/play/?e=83#example/types-vs-interfaces" target="_blank">Interfaces and Types</a>. You should prefer <code class="inline"><span class="keyword">interface</span></code>. Use <code class="inline"><span class="keyword">type</span></code> when you need specific features.
+            </p>
         </section>
 
         <section class="main-section" id="composing_types">
@@ -128,6 +286,5 @@
             </header>
         </section>
     </main>
-
 </body>
 </html>
