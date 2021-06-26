@@ -177,9 +177,9 @@ code {
         margin: 18px auto;
         padding: 20px 70px;
 
-        border-left: 4px solid @blue;
-        border-radius: 0 4px 4px 0;
+        border-radius: 2px;
         background-image: linear-gradient(to right, @light-blue 50%, lighten(@light-blue, 4%));
+        box-shadow: -2px 2px 3px -3px @dark-blue;
 
         .line {
             position: relative;
@@ -270,13 +270,12 @@ code {
                 position: absolute;
                 z-index: -1;
                 top: 0;
-                left: -74px;
+                left: -70px;
                 content: '';
-                width: calc(100% + 144px);
+                width: calc(100% + 140px);
                 height: 100%;
-
+                
                 @light-red: lighten( spin(@blue, 138), 35%) ;
-                border-left: 4px solid darken(@light-red, 28%);
                 background-image: linear-gradient(135deg, @light-red 30%, lighten(@light-red, 11%));
             }
         }

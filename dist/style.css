@@ -192,9 +192,9 @@ code.block {
   min-width: 700px;
   margin: 18px auto;
   padding: 20px 70px;
-  border-left: 4px solid #3178c6;
-  border-radius: 0 4px 4px 0;
+  border-radius: 2px;
   background-image: linear-gradient(to right,#e3e8ec 50%,#eff2f4);
+  box-shadow: -2px 2px 3px -3px #235a97;
   counter-reset: line-number
 }
 code.block .line {
@@ -275,11 +275,10 @@ code.block .error-message::before {
   position: absolute;
   z-index: -1;
   top: 0;
-  left: -74px;
+  left: -70px;
   content: '';
-  width: calc(100% + 144px);
+  width: calc(100% + 140px);
   height: 100%;
-  border-left: 4px solid #d24961;
   background-image: linear-gradient(135deg,#eebbc4 30%,#f9e8eb)
 }
 code .keyword {
