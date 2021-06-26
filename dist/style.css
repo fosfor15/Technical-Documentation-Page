@@ -82,9 +82,9 @@ body {
   background-color: #f8f8f8
 }
 header {
-  color: #235a97;
+  font-family: Montserrat,sans-serif;
   font-size: 30px;
-  font-family: Montserrat,sans-serif
+  color: #235a97
 }
 #navbar {
   display: flex;
@@ -168,6 +168,13 @@ header a:hover {
   background-image: linear-gradient(to right,#eee 70%,#f8f8f8);
   transform: translateX(6px)
 }
+h3 {
+  margin: 20px 0 16px;
+  font-family: Montserrat,sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  color: #235a97
+}
 p {
   margin: 16px 0;
   font-family: Montserrat,sans-serif;
@@ -204,6 +211,7 @@ code.block .line {
 }
 code.block .line::before {
   position: absolute;
+  top: 0;
   content: counter(line-number);
   counter-increment: line-number;
   font-size: 14px;
@@ -233,6 +241,7 @@ code.block .line.vertical-indent::before {
 }
 code.block .line.vertical-indent::after {
   position: absolute;
+  top: 0;
   content: counter(line-number);
   counter-increment: line-number;
   font-size: 14px;
@@ -240,15 +249,38 @@ code.block .line.vertical-indent::after {
   color: #235a97;
   left: -50px
 }
+code.block .keyword {
+  color: #155fb1
+}
+code.block .command {
+  color: #7d1fa6
+}
+code.block .function {
+  color: #908d18
+}
+code.block .object {
+  color: #16946b
+}
+code.block .string {
+  color: #b20808
+}
+code.block .number {
+  color: #7d1fa6
+}
+code.block .comment {
+  position: relative;
+  display: block;
+  left: 28px;
+  color: #045b0f;
+  text-indent: -28px
+}
 code.block .underline {
   border-bottom: 2px solid #235a97
 }
 code.block .result-message {
   position: relative;
   width: fit-content;
-  margin-top: 20px;
-  margin-left: 71px;
-  padding: 6px 12px;
+  padding: 6px 16px 8px;
   border: 1px solid #235a97;
   border-radius: 5px
 }
@@ -264,6 +296,14 @@ code.block .result-message::before {
   border-top-right-radius: 3px;
   background-color: #e3e8ec;
   transform: rotate(-45deg)
+}
+code.block #message-1 {
+  margin-top: 20px;
+  margin-left: 71px
+}
+code.block #message-2 {
+  margin: 20px 0 10px;
+  margin-left: 127px
 }
 code.block .error-message {
   position: relative;
@@ -281,24 +321,31 @@ code.block .error-message::before {
   height: 100%;
   background-image: linear-gradient(135deg,#eebbc4 30%,#f9e8eb)
 }
-code .keyword {
-  color: #155fb1
-}
-code .function {
-  color: #908d18
-}
-code .object {
-  color: #16946b
-}
-code .string {
-  color: #b20808
-}
-code .number {
-  color: #762f95
-}
-code .comment {
-  color: #1f6128
-}
 a {
   color: #235a97
+}
+#table {
+  width: 80%;
+  max-width: 1000px;
+  min-width: 700px;
+  margin: 18px auto
+}
+#table table {
+  border-collapse: collapse;
+  font-family: Montserrat,sans-serif
+}
+#table th {
+  border-top: 1px solid #cbd4dc
+}
+#table td,
+#table th {
+  padding: 10px 40px;
+  border-bottom: 1px solid #cbd4dc
+}
+#table th,
+#table tr:nth-child(even) td {
+  background-color: #f2f4f6
+}
+#table tr:nth-child(odd) td {
+  background-color: #e3e8ec
 }

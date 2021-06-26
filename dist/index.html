@@ -56,7 +56,7 @@
             </header>
 
             <p>
-                TypeScript stands in an unusual relationship to JavaScript. TypeScript offers all of JavaScript’s features, and an additional layer on top of these: TypeScript’s type system.For example, JavaScript provides language primitives like <code class="inline"><span class="string">string</span></code> and <code class="inline"><span class="number">number</span></code>, but it doesn’t check that you’ve consistently assigned these. TypeScript does. This means that your existing working JavaScript code is also TypeScript code. The main benefit of TypeScript is that it can highlight unexpected behavior in your code, lowering the chance of bugs.
+                TypeScript stands in an unusual relationship to JavaScript. TypeScript offers all of JavaScript’s features, and an additional layer on top of these: TypeScript’s type system.For example, JavaScript provides language primitives like <code class="inline">string</code> and <code class="inline">number</code>, but it doesn’t check that you’ve consistently assigned these. TypeScript does. This means that your existing working JavaScript code is also TypeScript code. The main benefit of TypeScript is that it can highlight unexpected behavior in your code, lowering the chance of bugs.
             </p>
             <p>
                 This tutorial provides a brief overview of TypeScript, focusing on its type system.
@@ -76,13 +76,13 @@
                 <div class="line">
                     <span class="keyword">let</span> <span class="underline">helloWorld</span> = <span class="string">'Hello World'</span>;
                 </div>
-                <div class="result-message">
+                <div class="result-message" id="message-1">
                     let helloWorld: string
                 </div>
             </code>
 
             <p>
-                By understanding how JavaScript works, TypeScript can build a type-system that accepts JavaScript code but has types. This offers a type-system without needing to add extra characters to make types explicit in your code. That’s how TypeScript knows that <code class="inline"><span class="underline">helloWorld</span></code> is a <code class="inline"><span class="string">string</span></code> in the above example.
+                By understanding how JavaScript works, TypeScript can build a type-system that accepts JavaScript code but has types. This offers a type-system without needing to add extra characters to make types explicit in your code. That’s how TypeScript knows that <code class="inline">helloWorld</code> is a <code class="inline">string</code> in the above example.
             </p>
             <p>
                 You may have written JavaScript in Visual Studio Code, and had editor auto-completion. Visual Studio Code uses TypeScript under the hood to make it easier to work with JavaScript.
@@ -98,7 +98,7 @@
                 You can use a wide variety of design patterns in JavaScript. However, some design patterns make it difficult for types to be inferred automatically (for example, patterns that use dynamic programming). To cover these cases, TypeScript supports an extension of the JavaScript language, which offers places for you to tell TypeScript what the types should be.
             </p>
             <p>
-                For example, to create an object with an inferred type which includes <code class="inline">name: <span class="string">string</span></code> and <code class="inline">id: <span class="number">number</span></code>, you can write:
+                For example, to create an object with an inferred type which includes <code class="inline">name: string</code> and <code class="inline">id: number</code>, you can write:
             </p>
 
             <code class="block">
@@ -106,7 +106,7 @@
                     <span class="keyword">const</span> user = {
                 </div>
                 <div class="line indent-1">
-                    name: <span class="string">"Hayes"</span>,
+                    name: <span class="string">'Hayes'</span>,
                 </div>
                 <div class="line indent-1">
                     id: <span class="number">0</span>,
@@ -117,7 +117,7 @@
             </code>
 
             <p>
-                You can explicitly describe this object’s shape using an <code class="inline"><span class="keyword">interface</span></code> declaration:
+                You can explicitly describe this object’s shape using an <code class="inline">interface</code> declaration:
             </p>
 
             <code class="block">
@@ -136,7 +136,7 @@
             </code>
 
             <p>
-                You can then declare that a JavaScript object conforms to the shape of your new <code class="inline"><span class="keyword">interface</span></code> by using syntax like <code class="inline"><span class="object">: TypeName</span></code> after a variable declaration:
+                You can then declare that a JavaScript object conforms to the shape of your new <code class="inline">interface</code> by using syntax like <code class="inline">:/span></code> after a variable declaration:
             </p>
 
             <code class="block">
@@ -144,7 +144,7 @@
                     <span class="keyword">const</span> user : <span class="object">User</span> = {
                 </div>
                 <div class="line indent-1">
-                    name: <span class="string">"Hayes"</span>,
+                    name: <span class="string">'Hayes'</span>,
                 </div>
                 <div class="line indent-1">
                     id: <span class="number">0</span>,
@@ -176,7 +176,7 @@
                     <span class="keyword">const</span> user : <span class="object">User</span> = {
                 </div>
                 <div class="line indent-1">
-                    username: <span class="string">"Hayes"</span>,
+                    username: <span class="string">'Hayes'</span>,
                 </div>
 
                 <div class="error-message">
@@ -237,7 +237,7 @@
                 </div>
 
                 <div class="line vertical-indent">
-                    <span class="keyword">const</span> user: <span class="object">User</span> = <span class="keyword">new</span> <span class="function">UserAccount</span>(<span class="string">"Murphy"</span>, <span class="number">1</span>);
+                    <span class="keyword">const</span> user: <span class="object">User</span> = <span class="keyword">new</span> <span class="function">UserAccount</span>(<span class="string">'Murphy'</span>, <span class="number">1</span>);
                 </div>
             </code>
 
@@ -267,10 +267,10 @@
             </code>
 
             <p class="increased-line-height">
-                There are already a small set of primitive types available in JavaScript: <code class="inline">boolean</code>, <code class="inline">bigint</code>, <code class="inline">null</code>, <code class="inline"><span class="number">number</span></code>, <code class="inline"><span class="string">string</span></code>, <code class="inline">symbol</code>, and <code class="inline">undefined</code>, which you can use in an interface. TypeScript extends this list with a few more, such as <code class="inline">any</code> – allow anything, <a href="https://www.typescriptlang.org/play#example/unknown-and-never" target="_blank">unknown</a> (ensure someone using this type declares what the type is), <a href="https://www.typescriptlang.org/play#example/unknown-and-never" target="_blank">never</a> – it’s not possible that this type could happen, and <code class="inline">void</code> – a function which returns <code class="inline">undefined</code> or has no return value.
+                There are already a small set of primitive types available in JavaScript: <code class="inline">boolean</code>, <code class="inline">bigint</code>, <code class="inline">null</code>, <code class="inline">number</code>, <code class="inline">string</code>, <code class="inline">symbol</code>, and <code class="inline">undefined</code>, which you can use in an interface. TypeScript extends this list with a few more, such as <code class="inline">any</code> – allow anything, <a href="https://www.typescriptlang.org/play#example/unknown-and-never" target="_blank">unknown</a> (ensure someone using this type declares what the type is), <a href="https://www.typescriptlang.org/play#example/unknown-and-never" target="_blank">never</a> – it’s not possible that this type could happen, and <code class="inline">void</code> – a function which returns <code class="inline">undefined</code> or has no return value.
             </p>
             <p>
-                You’ll see that there are two syntaxes for building types: <a href="https://www.typescriptlang.org/play/?e=83#example/types-vs-interfaces" target="_blank">Interfaces and Types</a>. You should prefer <code class="inline"><span class="keyword">interface</span></code>. Use <code class="inline"><span class="keyword">type</span></code> when you need specific features.
+                You’ll see that there are two syntaxes for building types: <a href="https://www.typescriptlang.org/play/?e=83#example/types-vs-interfaces" target="_blank">Interfaces and Types</a>. You should prefer <code class="inline">interface</code>. Use <code class="inline">type</code> when you need specific features.
             </p>
         </section>
 
@@ -278,6 +278,189 @@
             <header>
                 <a href="#composing_types">Composing Types</a>
             </header>
+
+            <p>
+                With TypeScript, you can create complex types by combining simple ones. There are two popular ways to do so: with Unions, and with Generics.
+            </p>
+
+            <h3>Unions</h3>
+
+            <p>
+                With a union, you can declare that a type could be one of many types. For example, you can describe a <code class="inline">boolean</code> type as being either <code class="inline">true</code> or <code class="inline">false</code>:
+            </p>
+
+            <code class="block">
+                <div class="line">
+                    type <span class="object">MyBool</span> = <span class="keyword">true</span> | <span class="keyword">false</span>;
+                </div>
+            </code>
+
+            <p>
+                <em>Note</em>: If you hover over <code class="inline">MyBool</code> above, you’ll see that it is classed as <code class="inline">boolean</code>. That’s a property of the Structural Type System. More on this below.
+            </p>
+            <p>
+                A popular use-case for union types is to describe the set of <code class="inline">string</code> or <code class="inline">number</code> <a href="https://www.typescriptlang.org/docs/handbook/literal-types.html" target="_blank">literals</a> that a value is allowed to be:
+            </p>
+
+            <code class="block">
+                <div class="line">
+                    <span class="keyword">type</span> <span class="object">WindowStates</span> = <span class="string">'open'</span> | <span class="string">'closed'</span> | <span class="string">'minimized'</span>;
+                </div>
+                <div class="line">
+                    <span class="keyword">type</span> <span class="object">LockStates</span> = <span class="string">'locked'</span> | <span class="string">'unlocked'</span>;
+                </div>
+                <div class="line">
+                    <span class="keyword">type</span> <span class="object">PositiveOddNumbersUnderTen</span> = <span class="number">1</span> | <span class="number">3</span> | <span class="number">5</span> | <span class="number">7</span> | <span class="number">9</span>;
+                </div>
+            </code>
+
+            <p>
+                Unions provide a way to handle different types too. For example, you may have a function that takes an <code class="inline">array</code> or a <code class="inline">string</code>:
+            </p>
+
+            <code class="block">
+                <div class="line">
+                    <span class="keyword">function</span> <span class="function">getLength</span>(obj: <span class="object">string</span> | <span class="object">string</span>[]) {
+                </div>
+                <div class="line indent-1">
+                    <span class="command">return</span> obj.length;
+                </div>
+                <div class="line">
+                    }
+                </div>
+            </code>
+
+            <p>
+                To learn the type of a variable, use <code class="inline">typeof</code>:
+            </p>
+
+            <div id="table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Type</th>
+                            <th>Type</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>string</td>
+                            <td>typeof s === "string"</td>
+                        </tr>
+                        <tr>
+                            <td>number</td>
+                            <td>typeof n === "number"</td>
+                        </tr>
+                        <tr>
+                            <td>boolean</td>
+                            <td>typeof b === "boolean"</td>
+                        </tr>
+                        <tr>
+                            <td>undefined</td>
+                            <td>typeof undefined === "undefined"</td>
+                        </tr>
+                        <tr>
+                            <td>function</td>
+                            <td>typeof f === "function"</td>
+                        </tr>
+                        <tr>
+                            <td>array</td>
+                            <td>Array.isArray(a)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p>
+                For example, you can make a function return different values depending on whether it is passed a string or an array:
+            </p>
+
+            <code class="block">
+                <div class="line">
+                    <span class="keyword">function</span> <span class="function">wrapInArray</span>(obj: <span class="object">string</span> | <span class="object">string</span>[]) {
+                </div>
+                <div class="line indent-1">
+                    <span class="command">if</span> (<span class="keyword">typeof</span> obj === <span class="string">'string'</span>) {
+                </div>
+                <div class="line indent-2">
+                    <span class="command">return</span> [<span class="underline">obj</span>];
+                </div>
+
+                <div class="result-message" id="message-2">
+                    (parameter) obj: string
+                </div>
+
+                <div class="line indent-1">
+                    } <span class="command">else</span> {
+                </div>
+                <div class="line indent-2">
+                    <span class="command">return</span> obj;
+                </div>
+                <div class="line indent-1">
+                    }
+                </div>
+                <div class="line">
+                    }
+                </div>
+            </code>
+
+            <h3>Generics</h3>
+
+            <p>
+                Generics provide variables to types. A common example is an array. An array without generics could contain anything. An array with generics can describe the values that the array contains.
+            </p>
+
+            <code class="block">
+                <div class="line">
+                    <span class="keyword">type</span> <span class="object">StringArray</span> = <span class="object">Array</span>&lt;<span class="object">string</span>&gt;;
+                </div>
+                <div class="line">
+                    <span class="keyword">type</span> <span class="object">NumberArray</span> = <span class="object">Array</span>&lt;<span class="object">number</span>&gt;;
+                </div>
+                <div class="line">
+                    <span class="keyword">type</span> <span class="object">ObjectWithNameArray</span> = <span class="object">Array</span>&lt;{ name: <span class="object">string</span> }&gt;;
+                </div>
+            </code>
+
+            <p>
+                You can declare your own types that use generics:
+            </p>
+
+            <code class="block">
+                <div class="line">
+                    <span class="keyword">interface</span> <span class="object">Backpack</span>&lt;<span class="object">Type</span>&gt; {
+                </div>
+                <div class="line indent-1">
+                    <span class="function">add</span>: (obj: <span class="object">Type</span>) <span class="keyword">=></span> <span class="object">void</span>;
+                </div>
+                <div class="line indent-1">
+                    <span class="function">get</span>: () <span class="keyword">=></span> <span class="object">Type</span>;
+                </div>
+                <div class="line">
+                    }
+                </div>
+                <div class="line vertical-indent">
+                    <span class="comment">// This line is a shortcut to tell TypeScript there is a constant called `backpack`, and to not worry about where it came from</span>
+                </div>
+                <div class="line">
+                    <span class="keyword">declare const</span> <span class="object">backpack</span>: <span class="object">Backpack</span>&lt;<span class="object">string</span>&gt;;
+                </div>
+                <div class="line vertical-indent">
+                    <span class="comment">// object is a string, because we declared it above as the variable part of Backpack</span>
+                </div>
+                <div class="line">
+                    <span class="keyword">const</span> <span class="object">object</span> = backpack.<span class="function">get</span>();
+                </div>
+                <div class="line vertical-indent">
+                    <span class="comment">// Since the backpack variable is a string, you can't pass a number to the add function</span>
+                </div>
+                <div class="line">
+                    backpack.<span class="function">add</span>(<span class="object">23</span>);
+                </div>                
+                <div class="error-message">
+                    Argument of type 'number' is not assignable to parameter of type 'string'.
+                </div>
+            </code>
         </section>
 
         <section class="main-section" id="structural_type_system">

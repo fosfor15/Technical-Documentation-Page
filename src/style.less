@@ -18,8 +18,8 @@
 @dark-yellow: #908d18;
 @aquamarine: #16946b;
 @red: #b20808;
-@purple: #762f95;
-@dark-green: #1f6128;
+@purple: #7d1fa6;
+@dark-green: #045b0f;
 
 
 /* --------------------------------------- Common Styles --------------------------------------- */
@@ -41,9 +41,9 @@ body {
 }
 
 header {
-    color: @dark-blue;
-    font-size: 30px;
     font-family: Montserrat, sans-serif;
+    font-size: 30px;
+    color: @dark-blue;
 }
 
 
@@ -149,6 +149,14 @@ header {
     }
 }
 
+h3 {
+    margin: 20px 0 16px;
+    font-family: Montserrat, sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    color: @dark-blue;
+}
+
 p {
     margin: 16px 0;
     font-family: Montserrat, sans-serif;
@@ -188,6 +196,7 @@ code {
 
             .line-number() {
                 position: absolute;
+                top: 0;
                 content: counter(line-number);
                 counter-increment: line-number;
                 font-size: 14px;
@@ -229,16 +238,46 @@ code {
         }
         counter-reset: line-number;
 
+        .keyword {
+            color: @keyword-blue;
+        }
+
+        .command {
+            color: @purple;
+        }
+
+        .function {
+            color: @dark-yellow;
+        }
+
+        .object {
+            color: @aquamarine;
+        }
+
+        .string {
+            color: @red;
+        }
+
+        .number {
+            color: @purple;
+        }
+
+        .comment {
+            position: relative;
+            display: block;
+            left: 28px;
+            color: @dark-green;
+            text-indent: -28px;
+        }
+
         .underline {
             border-bottom: 2px solid @dark-blue;
         }
         
         .result-message {
             position: relative;
-            width: fit-content;
-            margin-top: 20px;
-            margin-left: 71px;
-            padding: 6px 12px;
+            width: fit-content;            
+            padding: 6px 16px 8px;
             border: 1px solid @dark-blue;
             border-radius: 5px;
 
@@ -258,6 +297,16 @@ code {
 
                 transform: rotate(-45deg);
             }
+        }
+
+        #message-1 {
+            margin-top: 20px;
+            margin-left: 71px;
+        }
+
+        #message-2 {
+            margin: 20px 0 10px;
+            margin-left: 127px;
         }
 
         .error-message {
@@ -280,32 +329,42 @@ code {
             }
         }
     }
-    
-    .keyword {
-        color: @keyword-blue;
-    }
-
-    .function {
-        color: @dark-yellow;
-    }
-
-    .object {
-        color: @aquamarine;
-    }
-
-    .string {
-        color: @red;
-    }
-
-    .number {
-        color: @purple;
-    }
-
-    .comment {
-        color: @dark-green;
-    }
 }
 
 a {
     color: @dark-blue;
+}
+
+#table {
+    width: 80%;
+    max-width: 1000px;
+    min-width: 700px;
+    margin: 18px auto;
+
+    table {
+        border-collapse: collapse;
+        font-family: Montserrat, sans-serif;
+    }
+
+    @border: 1px solid darken(@light-blue, 8%);
+
+    th {
+        &:extend(#table td);
+        &:extend(#table tr:nth-child(even) td);
+        border-top: @border;
+    }
+    
+    td {
+        padding: 10px 40px;
+        border-bottom: @border;
+    }
+    
+    tr {
+        &:nth-child(even) td {
+            background-color: lighten(@light-blue, 5%);
+        }
+        &:nth-child(odd) td {
+            background-color: @light-blue;
+        }
+    }
 }
