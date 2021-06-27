@@ -74,9 +74,9 @@
 
             <code class="block">
                 <div class="line">
-                    <span class="keyword">let</span> <span class="underline">helloWorld</span> = <span class="string">'Hello World'</span>;
+                    <span class="keyword">let</span> <span class="result-underline">helloWorld</span> = <span class="string">'Hello World'</span>;
                 </div>
-                <div class="result-message" id="message-1">
+                <div class="result-message" style="margin-top: 20px; margin-left: 71px;">
                     let helloWorld: string
                 </div>
             </code>
@@ -176,7 +176,7 @@
                     <span class="keyword">const</span> user : <span class="object">User</span> = {
                 </div>
                 <div class="line indent-1">
-                    username: <span class="string">'Hayes'</span>,
+                    <span class="error-underline">username</span>: <span class="string">'Hayes'</span>,
                 </div>
 
                 <div class="error-message">
@@ -383,10 +383,10 @@
                     <span class="command">if</span> (<span class="keyword">typeof</span> obj === <span class="string">'string'</span>) {
                 </div>
                 <div class="line indent-2">
-                    <span class="command">return</span> [<span class="underline">obj</span>];
+                    <span class="command">return</span> [<span class="result-underline" style="padding-bottom: 2px;">obj</span>];
                 </div>
 
-                <div class="result-message" id="message-2">
+                <div class="result-message" style="margin: 18px 0 10px 130px;">
                     (parameter) obj: string
                 </div>
 
@@ -455,7 +455,7 @@
                     <span class="comment">// Since the backpack variable is a string, you can't pass a number to the add function</span>
                 </div>
                 <div class="line">
-                    backpack.<span class="function">add</span>(<span class="object">23</span>);
+                    backpack.<span class="function">add</span>(<span class="object error-underline">23</span>);
                 </div>                
                 <div class="error-message">
                     Argument of type 'number' is not assignable to parameter of type 'string'.
@@ -467,6 +467,119 @@
             <header>
                 <a href="#structural_type_system">Structural Type System</a>
             </header>
+
+            <p>
+                One of TypeScript’s core principles is that type checking focuses on the shape that values have. This is sometimes called “duck typing” or “structural typing”.
+            </p>
+            <p>
+                In a structural type system, if two objects have the same shape, they are considered to be of the same type.
+            </p>
+
+            <code class="block">
+                <div class="line">
+                    <span class="keyword">interface</span> <span class="object">Point</span> {
+                </div>
+                <div class="line indent-1">
+                    x: <span class="object">number</span>;
+                </div>
+                <div class="line indent-1">
+                    y: <span class="object">number</span>;
+                </div>
+                <div class="line">
+                    }
+                </div>
+                <div class="line vertical-indent">
+                    <span class="keyword">function</span> <span class="function">logPoint</span>(p: <span class="object">Point</span>) {
+                </div>
+                <div class="line indent-1">
+                    console.<span class="function">log</span>(`<span class="keyword">${</span>p.x<span class="keyword">}</span>, <span class="keyword">${</span>p.y<span class="keyword">}</span>`);
+                </div>
+                <div class="line">
+                    }
+                </div>
+                <div class="line vertical-indent">
+                    <span class="comment">// logs "12, 26"</span>
+                </div>
+                <div class="line">
+                    <span class="keyword">const</span> <span class="object">point</span> = { x: <span class="number">12</span>, y: <span class="number">26</span> };
+                </div>
+                <div class="line">
+                    <span class="function">logPoint</span>(point);
+                </div>
+            </code>
+
+            <p>
+                The <code class="inline">point</code> variable is never declared to be a <code class="inline">Point</code> type. However, TypeScript compares the shape of <code class="inline">point</code> to the shape of <code class="inline">Point</code> in the type-check. They have the same shape, so the code passes.
+            </p>
+            <p>
+                The shape-matching only requires a subset of the object’s fields to match.
+            </p>
+
+            <code class="block">
+                <div class="line">
+                    <span class="keyword">const</span> <span class="object">point3</span> = { x: <span class="number">12</span>, y: <span class="number">26</span>, z: <span class="number">89</span> };
+                </div>
+                <div class="line">
+                    <span class="function">logPoint</span>(point3); <span class="comment">// logs "12, 26"</span>
+                </div>
+                <div class="line vertical-indent">
+                    <span class="keyword">const</span> <span class="object">rect</span> = { x: <span class="number">33</span>, y: <span class="number">3</span>, width: <span class="number">30</span>, height: <span class="number">80</span> };
+                </div>
+                <div class="line">
+                    <span class="function">logPoint</span>(rect); <span class="comment">// logs "33, 3"</span>
+                </div>
+                <div class="line vertical-indent">
+                    <span class="keyword">const</span> <span class="object">color</span> = { hex: <span class="string">'#187ABF'</span> };
+                </div>
+                <div class="line">
+                    <span class="function">logPoint</span>(<span class="error-underline">color</span>);
+                </div>
+                <div class="error-message">
+                    Argument of type '{ hex: string; }' is not assignable to parameter of type 'Point'.
+                    Type '{ hex: string; }' is missing the following properties from type 'Point': x, y
+                </div>
+            </code>
+
+            <p>
+                There is no difference between how classes and objects conform to shapes:
+            </p>
+
+            <code class="block">
+                <div class="line">
+                    <span class="keyword">class</span> <span class="object">VirtualPoint</span> {
+                </div>
+                <div class="line indent-1">
+                    x: <span class="number">number</span>;
+                </div>
+                <div class="line indent-1">
+                    y: <span class="number">number</span>;
+                </div>
+                <div class="line indent-1 vertical-indent">
+                    <span class="keyword">constructor</span>(x: <span class="number">number</span>, y: <span class="number">number</span>) {
+                </div>
+                <div class="line indent-2">
+                    <span class="keyword">this</span>.x = x;
+                </div>
+                <div class="line indent-2">
+                    <span class="keyword">this</span>.y = y;
+                </div>
+                <div class="line indent-1">
+                    }
+                </div>
+                <div class="line">
+                    }
+                </div>
+                <div class="line vertical-indent">
+                    <span class="keyword">const</span> <span class="object">newVPoint</span> = <span class="keyword">new</span> <span class="function">VirtualPoint</span>(<span class="number">13</span>, <span class="number">56</span>);
+                </div>
+                <div class="line">
+                    <span class="function">logPoint</span>(newVPoint); <span class="comment">// logs "13, 56"</span>
+                </div>
+            </code>
+
+            <p>
+                If the object or class has all the required properties, TypeScript will say they match, regardless of the implementation details.
+            </p>
         </section>
     </main>
 </body>

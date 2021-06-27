@@ -269,12 +269,12 @@ code.block .number {
 }
 code.block .comment {
   position: relative;
-  display: block;
+  display: inline-block;
   left: 28px;
   color: #045b0f;
   text-indent: -28px
 }
-code.block .underline {
+code.block .result-underline {
   border-bottom: 2px solid #235a97
 }
 code.block .result-message {
@@ -297,13 +297,8 @@ code.block .result-message::before {
   background-color: #e3e8ec;
   transform: rotate(-45deg)
 }
-code.block #message-1 {
-  margin-top: 20px;
-  margin-left: 71px
-}
-code.block #message-2 {
-  margin: 20px 0 10px;
-  margin-left: 127px
+code.block .error-underline {
+  text-decoration: underline 1px #ff4141 wavy
 }
 code.block .error-message {
   position: relative;

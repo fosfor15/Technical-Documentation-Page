@@ -20,6 +20,7 @@
 @red: #b20808;
 @purple: #7d1fa6;
 @dark-green: #045b0f;
+@light-red: lighten( spin(@blue, 138), 35%);
 
 
 /* --------------------------------------- Common Styles --------------------------------------- */
@@ -264,13 +265,13 @@ code {
 
         .comment {
             position: relative;
-            display: block;
+            display: inline-block;
             left: 28px;
             color: @dark-green;
             text-indent: -28px;
         }
 
-        .underline {
+        .result-underline {
             border-bottom: 2px solid @dark-blue;
         }
         
@@ -299,14 +300,8 @@ code {
             }
         }
 
-        #message-1 {
-            margin-top: 20px;
-            margin-left: 71px;
-        }
-
-        #message-2 {
-            margin: 20px 0 10px;
-            margin-left: 127px;
+        .error-underline {
+            text-decoration: underline 1px rgb(255, 65, 65) wavy;
         }
 
         .error-message {
@@ -323,8 +318,6 @@ code {
                 content: '';
                 width: calc(100% + 140px);
                 height: 100%;
-                
-                @light-red: lighten( spin(@blue, 138), 35%) ;
                 background-image: linear-gradient(135deg, @light-red 30%, lighten(@light-red, 11%));
             }
         }
