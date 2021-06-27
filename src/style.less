@@ -130,8 +130,11 @@ header {
 header {
     margin-left: -10px;
     margin-bottom: 20px;
-    padding-top: 30px;        
     overflow: hidden;
+
+    #main-doc & {
+        padding-top: 24px;
+    }
     
     a {
         display: block;
@@ -333,10 +336,10 @@ a {
     max-width: 1000px;
     min-width: 700px;
     margin: 18px auto;
+    font-family: Montserrat, sans-serif;
 
     table {
         border-collapse: collapse;
-        font-family: Montserrat, sans-serif;
     }
 
     @border: 1px solid darken(@light-blue, 8%);
@@ -360,4 +363,19 @@ a {
             background-color: @light-blue;
         }
     }
+}
+
+#next-steps-list {
+    margin: 16px 16px 60px;
+    list-style-position: inside;
+    
+    li {
+        margin: 16px 0;
+        font-family: Montserrat, sans-serif;
+    }
+}
+
+footer {
+    &:extend(#main-doc);
+    text-align: center;
 }

@@ -144,7 +144,8 @@ header {
 #copyright p {
   margin: 12px 0
 }
-#main-doc {
+#main-doc,
+footer {
   margin-left: 340px;
   margin-right: 40px;
   font-size: 18px
@@ -152,8 +153,10 @@ header {
 header {
   margin-left: -10px;
   margin-bottom: 20px;
-  padding-top: 30px;
   overflow: hidden
+}
+#main-doc header {
+  padding-top: 24px
 }
 header a {
   display: block;
@@ -323,11 +326,11 @@ a {
   width: 80%;
   max-width: 1000px;
   min-width: 700px;
-  margin: 18px auto
+  margin: 18px auto;
+  font-family: Montserrat,sans-serif
 }
 #table table {
-  border-collapse: collapse;
-  font-family: Montserrat,sans-serif
+  border-collapse: collapse
 }
 #table th {
   border-top: 1px solid #cbd4dc
@@ -343,4 +346,15 @@ a {
 }
 #table tr:nth-child(odd) td {
   background-color: #e3e8ec
+}
+#next-steps-list {
+  margin: 16px 16px 60px;
+  list-style-position: inside
+}
+#next-steps-list li {
+  margin: 16px 0;
+  font-family: Montserrat,sans-serif
+}
+footer {
+  text-align: center
 }
