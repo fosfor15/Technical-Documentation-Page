@@ -119,6 +119,7 @@ header {
   text-decoration: none;
   transition: transform .3s
 }
+#navbar a.nav-link.active,
 #navbar a.nav-link:hover {
   background-image: linear-gradient(to right,#dfdfdf,#eee);
   transform: translateX(6px)
@@ -167,6 +168,7 @@ header a {
   text-decoration: none;
   transition: transform .3s
 }
+header a.active,
 header a:hover {
   background-image: linear-gradient(to right,#eee 70%,#f8f8f8);
   transform: translateX(6px)

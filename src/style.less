@@ -78,15 +78,16 @@ header {
         display: block;
         margin-left: -4px;
         padding: 8px 20px;
-
         border-left: 4px solid @blue;
-        
+
         font-family: Montserrat, sans-serif;
         font-size: 18px;
         color: black;
         text-decoration: none;
         
         transition: transform .3s;
+
+        &.active,
         &:hover {
             background-image: linear-gradient(to right, @dark-gray, @gray);
             transform: translateX(6px);
@@ -141,11 +142,13 @@ header {
         margin-left: -4px;
         padding: 4px 10px;
         border-left: 4px solid @blue;
-
+        
         color: inherit;
         text-decoration: none;
 
         transition: transform .3s;
+
+        &.active,
         &:hover {
             background-image: linear-gradient(to right, @gray 70%, @light-gray);
             transform: translateX(6px);

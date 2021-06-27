@@ -6,11 +6,13 @@ const path = {
     build: {
         html: `${buildFolder}/`,
         styles: `${buildFolder}/`,
+        scripts: `${buildFolder}/`,
         img: `${buildFolder}/img/`
     },
     source: {
         html: `${sourceFolder}/*.html`,
         styles: `${sourceFolder}/*.less`,
+        scripts: `${sourceFolder}/*.js`,
         img: `${sourceFolder}/img/*`
     },
     clean: `./${buildFolder}/`
@@ -31,11 +33,6 @@ function copyHTML() {
            .pipe( browserSync.stream() );
 }
 
-function copyImg() {
-    return src( path.source.img )
-           .pipe( dest( path.build.img ) );
-}
-
 function transformStyles() {
     return src( path.source.styles )
            .pipe( less() )
@@ -43,6 +40,17 @@ function transformStyles() {
            .pipe( dest( path.build.styles ) )
            .pipe( browserSync.stream() );
 }
+
+function copyScripts() {
+    return src( path.source.scripts )
+           .pipe( dest( path.build.scripts ) );
+}
+
+function copyImg() {
+    return src( path.source.img )
+           .pipe( dest( path.build.img ) );
+}
+
 
 function initBrowserSync() {
     browserSync.init({
@@ -57,6 +65,7 @@ function initBrowserSync() {
 function watchFiles() {
     gulp.watch( path.source.html, copyHTML );
     gulp.watch( path.source.styles, transformStyles );
+    gulp.watch( path.source.scripts, copyScripts );
 }
 
 function clean() {
@@ -68,8 +77,9 @@ const build = gulp.series(
     clean,
     gulp.parallel(
         copyHTML,
+        transformStyles,
+        copyScripts,
         copyImg,
-        transformStyles
     )
 );
 
@@ -84,6 +94,7 @@ module.exports = {
     build,
     watch,
     copyHTML,
-    copyImg,
-    transformStyles
+    transformStyles,
+    copyScripts,
+    copyImg
 };
