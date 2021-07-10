@@ -159,6 +159,22 @@ header {
 #main-doc header {
   padding-top: 24px
 }
+header.active {
+  position: sticky;
+  z-index: 10;
+  top: 0;
+  overflow: visible
+}
+header.active::before {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: -30px;
+  width: calc(100% + 70px);
+  height: 86px;
+  background-color: #f8f8f8;
+  content: ''
+}
 header a {
   display: block;
   margin-left: -4px;
@@ -168,8 +184,8 @@ header a {
   text-decoration: none;
   transition: transform .3s
 }
-header a.active,
-header a:hover {
+header a:hover,
+header.active a {
   background-image: linear-gradient(to right,#eee 70%,#f8f8f8);
   transform: translateX(6px)
 }
@@ -307,7 +323,7 @@ code.block .error-underline {
 }
 code.block .error-message {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   margin: 6px 0;
   padding: 6px 0
 }
@@ -316,10 +332,10 @@ code.block .error-message::before {
   z-index: -1;
   top: 0;
   left: -70px;
-  content: '';
   width: calc(100% + 140px);
   height: 100%;
-  background-image: linear-gradient(135deg,#eebbc4 30%,#f9e8eb)
+  background-image: linear-gradient(135deg,#eebbc4 30%,#f9e8eb);
+  content: ''
 }
 a {
   color: #235a97

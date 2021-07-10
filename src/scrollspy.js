@@ -1,7 +1,7 @@
 
 const navLinks = document.getElementsByClassName('nav-link');
-const sectionsHeaders = document.querySelectorAll('.main-section header a');
 const sections = document.getElementsByClassName('main-section');
+const sectionsHeaders = document.querySelectorAll('.main-section header');
 
 let currentScrollPos = 0;
 let currentSection = 0;
@@ -14,7 +14,7 @@ window.addEventListener('scroll', function() {
         currentSection += 1;
         processScrollHighlight();
 
-    } else if (sections[currentSection]?.offsetTop > currentScrollPos) {
+    } else if (sections[currentSection].offsetTop > currentScrollPos) {
         processScrollHighlight();
         currentSection -= 1;
         processScrollHighlight();

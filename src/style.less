@@ -136,6 +136,28 @@ header {
     #main-doc & {
         padding-top: 24px;
     }
+
+    &.active {
+        position: sticky;
+        z-index: 10;
+        top: 0;
+        overflow: visible;
+
+        &::before {
+            position: absolute;
+            z-index: -1;
+            top: 0;
+            left: -30px;
+            width: calc(100% + 70px);
+            height: 86px;
+            background-color: @light-gray;
+            content: '';
+        }
+        
+        a {
+            &:extend(header a:hover);
+        }
+    }
     
     a {
         display: block;
@@ -148,11 +170,10 @@ header {
 
         transition: transform .3s;
 
-        &.active,
         &:hover {
             background-image: linear-gradient(to right, @gray 70%, @light-gray);
             transform: translateX(6px);
-        }
+        }        
     }
 }
 
@@ -312,7 +333,7 @@ code {
 
         .error-message {
             position: relative;
-            z-index: 1;
+            z-index: 2;
             margin: 6px 0;
             padding: 6px 0;
 
@@ -321,10 +342,10 @@ code {
                 z-index: -1;
                 top: 0;
                 left: -70px;
-                content: '';
                 width: calc(100% + 140px);
                 height: 100%;
                 background-image: linear-gradient(135deg, @light-red 30%, lighten(@light-red, 11%));
+                content: '';
             }
         }
     }
