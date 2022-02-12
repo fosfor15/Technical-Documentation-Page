@@ -3,42 +3,42 @@
   font-style: italic;
   font-weight: 400;
   font-display: swap;
-  src: url(https://fonts.gstatic.com/s/montserrat/v15/JTUQjIg1_i6t8kCHKm459Wxhzg.ttf) format('truetype')
+  src: url(https://fonts.gstatic.com/s/montserrat/v23/JTUFjIg1_i6t8kCHKm459Wx7xQYXK0vOoz6jq6R9aX8.ttf) format('truetype')
 }
 @font-face {
   font-family: Montserrat;
   font-style: italic;
   font-weight: 500;
   font-display: swap;
-  src: url(https://fonts.gstatic.com/s/montserrat/v15/JTUPjIg1_i6t8kCHKm459WxZOg3D-w.ttf) format('truetype')
+  src: url(https://fonts.gstatic.com/s/montserrat/v23/JTUFjIg1_i6t8kCHKm459Wx7xQYXK0vOoz6jq5Z9aX8.ttf) format('truetype')
 }
 @font-face {
   font-family: Montserrat;
   font-style: italic;
   font-weight: 700;
   font-display: swap;
-  src: url(https://fonts.gstatic.com/s/montserrat/v15/JTUPjIg1_i6t8kCHKm459WxZcgvD-w.ttf) format('truetype')
+  src: url(https://fonts.gstatic.com/s/montserrat/v23/JTUFjIg1_i6t8kCHKm459Wx7xQYXK0vOoz6jq0N6aX8.ttf) format('truetype')
 }
 @font-face {
   font-family: Montserrat;
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url(https://fonts.gstatic.com/s/montserrat/v15/JTUSjIg1_i6t8kCHKm45xW4.ttf) format('truetype')
+  src: url(https://fonts.gstatic.com/s/montserrat/v23/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCtr6Ew-.ttf) format('truetype')
 }
 @font-face {
   font-family: Montserrat;
   font-style: normal;
   font-weight: 500;
   font-display: swap;
-  src: url(https://fonts.gstatic.com/s/montserrat/v15/JTURjIg1_i6t8kCHKm45_ZpC7g4.ttf) format('truetype')
+  src: url(https://fonts.gstatic.com/s/montserrat/v23/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCtZ6Ew-.ttf) format('truetype')
 }
 @font-face {
   font-family: Montserrat;
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: url(https://fonts.gstatic.com/s/montserrat/v15/JTURjIg1_i6t8kCHKm45_dJE7g4.ttf) format('truetype')
+  src: url(https://fonts.gstatic.com/s/montserrat/v23/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCuM70w-.ttf) format('truetype')
 }
 @font-face {
   font-family: 'Roboto Mono';
@@ -356,6 +356,107 @@ a {
 #next-steps-list li {
   margin: 16px 0;
   font-family: Montserrat,sans-serif
+}
+#button-to-up {
+  position: fixed;
+  z-index: 10;
+  right: 40px;
+  bottom: 50px;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  width: 56px;
+  height: 56px;
+  background-image: conic-gradient(#eee 0,#eee 100%);
+  border-radius: 50%;
+  box-shadow: 0 3px 6px -4px #181818;
+  cursor: pointer;
+  animation-duration: .4s;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards
+}
+#button-to-up:hover {
+  animation-name: conic-gradient
+}
+@keyframes conic-gradient {
+  0% {
+    background-image: conic-gradient(#eee 0,#eee 100%)
+  }
+  5% {
+    background-image: conic-gradient(#eee 0,#3178c6 0,#3178c6 5%,#eee 5%)
+  }
+  10% {
+    background-image: conic-gradient(#eee 0,#3178c6 0,#3178c6 10%,#eee 10%)
+  }
+  15% {
+    background-image: conic-gradient(#eee 0,#3178c6 0,#3178c6 15%,#eee 15%)
+  }
+  20% {
+    background-image: conic-gradient(#eee 0,#3178c6 0,#3178c6 20%,#eee 20%)
+  }
+  25% {
+    background-image: conic-gradient(#eee 0,#3178c6 0,#3178c6 25%,#eee 25%)
+  }
+  30% {
+    background-image: conic-gradient(#eee 0,#3178c6 0,#3178c6 30%,#eee 30%)
+  }
+  35% {
+    background-image: conic-gradient(#eee 0,#3178c6 0,#3178c6 35%,#eee 35%)
+  }
+  40% {
+    background-image: conic-gradient(#eee 0,#3178c6 0,#3178c6 40%,#eee 40%)
+  }
+  45% {
+    background-image: conic-gradient(#eee 0,#3178c6 0,#3178c6 45%,#eee 45%)
+  }
+  50% {
+    background-image: conic-gradient(#eee 0,#3178c6 0,#3178c6 50%,#eee 50%)
+  }
+  55% {
+    background-image: conic-gradient(#eee 0,#3178c6 0,#3178c6 55%,#eee 55%)
+  }
+  60% {
+    background-image: conic-gradient(#eee 0,#3178c6 0,#3178c6 60%,#eee 60%)
+  }
+  65% {
+    background-image: conic-gradient(#eee 0,#3178c6 0,#3178c6 65%,#eee 65%)
+  }
+  70% {
+    background-image: conic-gradient(#eee 0,#3178c6 0,#3178c6 70%,#eee 70%)
+  }
+  75% {
+    background-image: conic-gradient(#eee 0,#3178c6 0,#3178c6 75%,#eee 75%)
+  }
+  80% {
+    background-image: conic-gradient(#eee 0,#3178c6 0,#3178c6 80%,#eee 80%)
+  }
+  85% {
+    background-image: conic-gradient(#eee 0,#3178c6 0,#3178c6 85%,#eee 85%)
+  }
+  90% {
+    background-image: conic-gradient(#eee 0,#3178c6 0,#3178c6 90%,#eee 90%)
+  }
+  95% {
+    background-image: conic-gradient(#eee 0,#3178c6 0,#3178c6 95%,#eee 95%)
+  }
+  100% {
+    background-image: conic-gradient(#eee 0,#3178c6 0,#3178c6 100%,#eee 100%)
+  }
+}
+#button-to-up span {
+  position: relative;
+  width: 53px;
+  height: 53px;
+  padding-top: 2px;
+  background-color: #eee;
+  border-radius: 50%;
+  font-size: 32px;
+  text-align: center;
+  color: #555;
+  transition: all .4s
+}
+#button-to-up span:hover {
+  color: #3178c6
 }
 footer {
   text-align: center

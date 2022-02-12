@@ -378,6 +378,119 @@ a {
     }
 }
 
+#button-to-up {
+    position: fixed;
+    z-index: 10;
+    right: 40px;
+    bottom: 50px;
+
+    display: none;
+    justify-content: center;
+    align-items: center;
+    
+    width: 56px;
+    height: 56px;
+    background-image: conic-gradient(@gray 0%, @gray 100%);
+    border-radius: 50%;
+    box-shadow: 0 3px 6px -4px #181818;
+    cursor: pointer;
+
+    animation-duration: .4s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+
+    &:hover {
+        animation-name: conic-gradient;
+    }
+
+    @steps: range(1, 20);
+
+    @keyframes conic-gradient {
+        0% {
+            background-image: conic-gradient(@gray 0%, @gray 100%);
+        }
+        5% {
+            background-image: conic-gradient(@gray 0%, @blue 0%, @blue 5%, @gray 5%);
+        }
+        10% {
+            background-image: conic-gradient(@gray 0%, @blue 0%, @blue 10%, @gray 10%);
+        }
+        15% {
+            background-image: conic-gradient(@gray 0%, @blue 0%, @blue 15%, @gray 15%);
+        }
+        20% {
+            background-image: conic-gradient(@gray 0%, @blue 0%, @blue 20%, @gray 20%);
+        }
+        25% {
+            background-image: conic-gradient(@gray 0%, @blue 0%, @blue 25%, @gray 25%);
+        }
+        30% {
+            background-image: conic-gradient(@gray 0%, @blue 0%, @blue 30%, @gray 30%);
+        }
+        35% {
+            background-image: conic-gradient(@gray 0%, @blue 0%, @blue 35%, @gray 35%);
+        }
+        40% {
+            background-image: conic-gradient(@gray 0%, @blue 0%, @blue 40%, @gray 40%);
+        }
+        45% {
+            background-image: conic-gradient(@gray 0%, @blue 0%, @blue 45%, @gray 45%);
+        }
+        50% {
+            background-image: conic-gradient(@gray 0%, @blue 0%, @blue 50%, @gray 50%);
+        }
+        55% {
+            background-image: conic-gradient(@gray 0%, @blue 0%, @blue 55%, @gray 55%);
+        }
+        60% {
+            background-image: conic-gradient(@gray 0%, @blue 0%, @blue 60%, @gray 60%);
+        }
+        65% {
+            background-image: conic-gradient(@gray 0%, @blue 0%, @blue 65%, @gray 65%);
+        }
+        70% {
+            background-image: conic-gradient(@gray 0%, @blue 0%, @blue 70%, @gray 70%);
+        }
+        75% {
+            background-image: conic-gradient(@gray 0%, @blue 0%, @blue 75%, @gray 75%);
+        }
+        80% {
+            background-image: conic-gradient(@gray 0%, @blue 0%, @blue 80%, @gray 80%);
+        }
+        85% {
+            background-image: conic-gradient(@gray 0%, @blue 0%, @blue 85%, @gray 85%);
+        }
+        90% {
+            background-image: conic-gradient(@gray 0%, @blue 0%, @blue 90%, @gray 90%);
+        }
+        95% {
+            background-image: conic-gradient(@gray 0%, @blue 0%, @blue 95%, @gray 95%);
+        }
+        100% {
+            background-image: conic-gradient(@gray 0%, @blue 0%, @blue 100%, @gray 100%);
+        }
+    }
+
+    span {
+        position: relative;
+
+        width: 53px;
+        height: 53px;
+        padding-top: 2px;
+        background-color: @gray;
+        border-radius: 50%;
+        
+        font-size: 32px;
+        text-align: center;
+        
+        color: darken(@gray, 60%);
+        transition: all .4s;
+        &:hover {
+            color: @blue
+        }
+    }
+}
+
 footer {
     &:extend(#main-doc);
     text-align: center;
