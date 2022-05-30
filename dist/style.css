@@ -92,17 +92,42 @@ header {
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 10;
   width: 300px;
+  transition: width .25s;
   height: 100vh;
   overflow: hidden;
   background-color: #eee;
   border-right: 1px solid #c8c8c8
+}
+@media screen and (max-width:1080px) {
+  #navbar {
+    width: 20px
+  }
+}
+#navbar > * {
+  width: 300px
 }
 #navbar h1 {
   margin: 20px;
   margin-top: 28px;
   font-size: 30px;
   font-weight: 400
+}
+#navbar #chevron {
+  position: absolute;
+  top: 30px;
+  left: 0;
+  display: none;
+  width: 20px;
+  padding: 5px;
+  fill: #3178c6;
+  cursor: pointer
+}
+@media screen and (max-width:1080px) {
+  #navbar #chevron {
+    display: block
+  }
 }
 #navbar ul {
   list-style-type: none
@@ -150,8 +175,15 @@ header {
 #main-doc,
 footer {
   margin-left: 340px;
+  transition: margin-left .25s;
   margin-right: 40px;
   font-size: 18px
+}
+@media screen and (max-width:1080px) {
+  #main-doc,
+  footer {
+    margin-left: 40px
+  }
 }
 #main-doc header {
   margin-left: -10px;
@@ -204,7 +236,7 @@ code.block {
   display: block;
   width: 80%;
   max-width: 1000px;
-  min-width: 700px;
+  min-width: 400px;
   margin: 18px auto;
   padding: 20px 70px;
   border-radius: 2px;

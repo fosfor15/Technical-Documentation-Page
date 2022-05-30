@@ -55,5 +55,5 @@ window.addEventListener('scroll', scrollHandler);
 
 buttonToUp.addEventListener('click', function() {
     window.scrollTo(0, 0);
-    location.pathname = '';
+    location.hash = '';
 });

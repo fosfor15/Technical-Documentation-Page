@@ -57,19 +57,46 @@ header {
     position: fixed;
     top: 0;
     left: 0;
+    z-index: 10;
 
     width: 300px;
+    @media screen and (max-width: 1080px) {
+        width: 20px;
+    }
+    transition: width .25s;
+    
     height: 100vh;
     overflow: hidden;
     
     background-color: @gray;
     border-right: 1px solid darken(@gray, 15%);
 
+    > * {
+        width: 300px;
+    }
+
     h1 {
         margin: 20px;
         margin-top: 28px;
         font-size: 30px;
         font-weight: 400;
+    }
+
+    #chevron {
+        position: absolute;
+        top: 30px;
+        left: 0;
+
+        display: none;
+        @media screen and (max-width: 1080px) {
+            display: block;
+        }
+
+        width: 20px;
+        padding: 5px;
+
+        fill: @blue;
+        cursor: pointer;
     }
 
     ul { list-style-type: none; }
@@ -126,6 +153,11 @@ header {
 
 #main-doc {
     margin-left: 340px;
+    @media screen and (max-width: 1080px) {
+        margin-left: 40px;
+    }
+    transition: margin-left .25s;
+
     margin-right: 40px;
     font-size: 18px;
 
@@ -192,7 +224,7 @@ code {
         display: block;
         width: 80%;
         max-width: 1000px;
-        min-width: 700px;
+        min-width: 400px;
         margin: 18px auto;
         padding: 20px 70px;
 
