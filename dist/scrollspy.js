@@ -7,28 +7,25 @@ const buttonToUp = document.getElementById('button-to-up');
 let currentScrollPos = 0;
 let currentSection = 0;
 
-window.addEventListener('scroll', function() {
+
+function scrollHandler() {
     currentScrollPos = window.pageYOffset;
 
-    if (sections[currentSection + 1]?.offsetTop - 2 <= currentScrollPos) {
-        processScrollHighlight();
-        currentSection += 1;
-        processScrollHighlight();
+    if (currentSection < 4 &&
+        sections[currentSection + 1].offsetTop - 2 <= currentScrollPos) {
+            processScrollHighlight(true);
 
-    } else if (sections[currentSection]?.offsetTop - 2 > currentScrollPos) {
-        processScrollHighlight();
-        currentSection -= 1;
-        processScrollHighlight();
+    } else if (currentSection == 4 &&
+        document.documentElement.scrollHeight - document.documentElement.clientHeight - 10 <= currentScrollPos) {
+            processScrollHighlight(true);
 
-    } else if (document.documentElement.scrollHeight - document.documentElement.clientHeight == currentScrollPos) {
-        processScrollHighlight();
-        currentSection += 1;
-        processScrollHighlight();
-    }
+    } else if (currentSection > 0 && currentSection < 5 &&
+        sections[currentSection].offsetTop - 2 > currentScrollPos) {
+            processScrollHighlight(false);
 
-    function processScrollHighlight() {
-        navLinks[currentSection].classList.toggle('active');
-        sectionsHeaders[currentSection].classList.toggle('active');
+    } else if (currentSection == 5 &&
+        sections[currentSection].offsetTop - document.documentElement.clientHeight > currentScrollPos) {
+            processScrollHighlight(false);
     }
 
     if (document.documentElement.clientHeight <= currentScrollPos) {
@@ -36,8 +33,27 @@ window.addEventListener('scroll', function() {
     } else {
         buttonToUp.style.display = '';
     }
-});
+}
+
+function processScrollHighlight(dir) {
+    for (let i = 1; i <= 2; i++) {
+        navLinks[currentSection].classList.toggle('active');
+        sectionsHeaders[currentSection].classList.toggle('active');
+        
+        if (i == 1) {
+            if (dir) {
+                currentSection += 1;
+            } else {
+                currentSection -= 1;
+            }
+        }
+    }
+}
+
+
+window.addEventListener('scroll', scrollHandler);
 
 buttonToUp.addEventListener('click', function() {
     window.scrollTo(0, 0);
+    location.pathname = '';
 });
